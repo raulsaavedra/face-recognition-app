@@ -2,21 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledHeader = styled.header.attrs({
-	className: 'bg-green o-70 pv4 bb b--black bw3 shadow-5 '
+	className: 'o-70 pv4 bb b--black-10 bw3 shadow-5 '
 })``
 const StyledNav = styled.nav.attrs({
-	className: 'tracked'
+	className: 'tracked flex justify-center'
 })``
 const StyledLink = styled.a.attrs({
-	className: 'mr6-l mr5-m mr4-ns f4 f5-m white fw8'
-})``
+	className: 'link dim underline pointer f4 f5-m black fw8'
+})`
+	margin-left: 8%;
+	margin-right: 5%;
+`
 const Navigation = () => {
 	return (
 			<StyledHeader>
 				<StyledNav>
-					<StyledLink className='ml6 ml5-m'>Sign in</StyledLink>
+					<StyledLink>Sign in</StyledLink>
+					<StyledLink>Register</StyledLink>
 					<StyledLink>How it works</StyledLink>
-					<StyledLink>About</StyledLink>
 				</StyledNav>
 			</StyledHeader>
 		)
