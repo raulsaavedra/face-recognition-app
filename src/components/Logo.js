@@ -4,14 +4,20 @@ import Tilt from 'react-tilt'
 import logo from './logo.png'
 const StyledLogo = styled.div.attrs({
 	className: 'flex justify-center mv3'
-})``
-
+})`
+	
+`
+const StyledTilt = styled(Tilt).attrs({
+	className: 'Tilt br4 shadow-2'
+})`
+	background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59)
+`
 const Logo = () => {
 	return (
 			<StyledLogo>
-				<Tilt className="Tilt br4 shadow-2 animated pulse infinite slow" options={{ max : 25 }} style={{ height: 250, width: 250 }} >
+				<StyledTilt className="" options={{ max : 25 }} style={{ height: 250, width: 250 }} >
 				 <div className="Tilt-inner"><img src={logo}/></div>
-				</Tilt>
+				</StyledTilt>
 			</StyledLogo>
 		)
 }

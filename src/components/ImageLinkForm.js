@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import {FaArrowDown} from "react-icons/fa";
+import {FaArrowDown} from 'react-icons/fa';
+import Rank from './Rank';
 
 
 const ImageLinkForm = () => {
 	return (
 		<FormDiv>
-		    <FormHeader for="name">Image link </FormHeader>
+		    <Rank/>
 		    <FaArrowDown className='animated swing infinite dim black f1 mb2'/>
 		    <FormInnerDiv>
 			    <StyledInput id="name" type="text" aria-describedby="name-desc"/>
-			    <button className='grow f4 link ph3 pv2 dib white bg-purple'>Submit</button>
+			    <StyledButton>Submit</StyledButton>
 		    </FormInnerDiv>
 		 </FormDiv>
 
@@ -23,9 +24,7 @@ const FormDiv = styled.form.attrs({
 	margin: 2% 10%;
 	
 `
-const FormHeader = styled.label.attrs({
-	className: 'dim black f4 fw9 b db mb2'
-})``
+
 const FormInnerDiv = styled.div.attrs({
   className: 'flex-l justify-center pa4 br4'
 })`
@@ -39,9 +38,11 @@ linear-gradient(90deg,#B71 2%,#fb1 0,#fb1 98%,#B71 0%)0 0 #fb1;
 background-size: 40px 60px;
 `
 const StyledInput = styled.input.attrs({
-	className: 'input-reset bg-white shadow-5 pa2 mb2 db w-100'
+	className: 'input-reset bg-white shadow-5 pa2 pa3-m w-100'
 })``
 
-
+const StyledButton = styled.button.attrs({
+	className: 'grow f4 fw8 link ph3 pv2 dib white bg-light-purple mt0-l mt2-m pointer'
+})``
 
 export default ImageLinkForm;

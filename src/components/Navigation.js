@@ -8,9 +8,9 @@ const StyledNav = styled.nav.attrs({
 	className: 'tracked flex justify-center'
 })``
 const StyledLink = styled.a.attrs({
-	className: 'link dim underline pointer f4 f5-m black fw8'
+	className: 'link dim underline pointer f3 f4-m black fw9'
 })`
-	margin-left: 8%;
+	margin-left: 11%;
 	margin-right: 5%;
 `
 const Navigation = () => {
@@ -18,7 +18,7 @@ const Navigation = () => {
 			<StyledHeader>
 				<StyledNav>
 					<StyledLink>Sign in</StyledLink>
-					<StyledLink>Register</StyledLink>
+					<StyledLink>Sign up</StyledLink>
 					<StyledLink>How it works</StyledLink>
 				</StyledNav>
 			</StyledHeader>
