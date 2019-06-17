@@ -8,15 +8,15 @@ const StyledNav = styled.nav.attrs({
 	className: 'tracked'
 })``
 const StyledLink = styled.a.attrs({
-	className: 'dib mr6-l mr5-m mr4-ns f4 f5-m white fw8'
+	className: 'mr6-l mr5-m mr4-ns f4 f5-m white fw8'
 })``
 const Navigation = () => {
 	return (
 			<StyledHeader>
 				<StyledNav>
-					<StyledLink>Sign in</StyledLink>
+					<StyledLink className='ml6 ml5-m'>Sign in</StyledLink>
 					<StyledLink>How it works</StyledLink>
-					<StyledLink>About </StyledLink>
+					<StyledLink>About</StyledLink>
 				</StyledNav>
 			</StyledHeader>
 		)
