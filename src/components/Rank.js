@@ -8,7 +8,7 @@ const Rank = () => {
 	return (
 		<div className ='flex justify-center'>
 			<TextDiv>
-				{'Raul, your current rank is ' + '5'} 
+				{'Raul, your current rank is 5'} 
 			</TextDiv>
 		</div>
 

@@ -12,11 +12,11 @@ const StyledTilt = styled(Tilt).attrs({
 })`
 	background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59)
 `
-const Logo = () => {
+const Logo = ({showResults}) => {
 	return (
 			<StyledLogo>
-				<StyledTilt className="" options={{ max : 25 }} style={{ height: 250, width: 250 }} >
-				 <div className="Tilt-inner"><img src={logo}/></div>
+				<StyledTilt className={showResults ? 'dn' : ''} options={{ max : 25 }} style={{ height: 250, width: 250 }} >
+				 <div className="Tilt-inner"><img alt='' src={logo}/></div>
 				</StyledTilt>
 			</StyledLogo>
 		)
