@@ -13,12 +13,13 @@ const StyledLink = styled.a.attrs({
 	margin-left: 11%;
 	margin-right: 5%;
 `
-const Navigation = () => {
+const Navigation = ({onRouteChange}) => {
 	return (
 			<StyledHeader>
 				<StyledNav>
-					<StyledLink>Sign in</StyledLink>
-					<StyledLink>Sign up</StyledLink>
+					<StyledLink
+					onClick={() => onRouteChange('signin')}
+					>Sign Out</StyledLink>
 					<StyledLink>How it works</StyledLink>
 				</StyledNav>
 			</StyledHeader>
