@@ -5,22 +5,26 @@ const StyledHeader = styled.header.attrs({
 	className: 'o-70 pv4 bb b--black-10 bw3 shadow-5 '
 })``
 const StyledNav = styled.nav.attrs({
-	className: 'tracked flex justify-center'
+	className: 'flex justify-end tracked' 
 })``
 const StyledLink = styled.a.attrs({
-	className: 'link dim underline pointer f3 f4-m black fw9'
+	className: 'mr5 link dim underline pointer f3 f4-m black fw9'
 })`
-	margin-left: 11%;
-	margin-right: 5%;
 `
-const Navigation = ({onRouteChange}) => {
+const Navigation = ({onRouteChange, isSignedIn}) => {
 	return (
+			
 			<StyledHeader>
 				<StyledNav>
-					<StyledLink
-					onClick={() => onRouteChange('signin')}
-					>Sign Out</StyledLink>
-					<StyledLink>How it works</StyledLink>
+					{isSignedIn 
+					? <div>
+						<StyledLink onClick={() => onRouteChange('signout')}>Sign Out</StyledLink>
+						</div> 
+					: <div>
+						<StyledLink onClick={() => onRouteChange('signin')}>Sign In</StyledLink>
+						<StyledLink onClick={() => onRouteChange('register')}>Register</StyledLink>
+						</div> 
+				}
 				</StyledNav>
 			</StyledHeader>
 		)

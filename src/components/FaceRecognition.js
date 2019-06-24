@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 const FaceRecognition = ({imageUrl, box}) => {
 	return (
-			<div className='center ma'>
+			<div className='flex justify-center ma'>
 				<ImageDiv className='absolute mt2'>
 					<img id='inputimage' alt='' src={imageUrl} width='500px' height='auto'/> 
 					<BoundingBox style={{top: box.topRow, right: box.rightCol,
@@ -18,12 +18,7 @@ const FaceRecognition = ({imageUrl, box}) => {
 const ImageDiv = styled.div.attrs({
 
 })`
-position: absolute;
-    top: 125vh;  
-    left: 50%;
-
-    transform: translate(-50%, -50%); /* This is a shorthand of
-                                         translateX(-50%) and translateY(-50%) */
+z-index: 100;
 `
 
 const BoundingBox = styled.div.attrs({
