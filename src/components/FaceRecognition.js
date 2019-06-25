@@ -18,7 +18,7 @@ const FaceRecognition = ({imageUrl, box}) => {
 const ImageDiv = styled.div.attrs({
 
 })`
-z-index: 100;
+z-index: 100; 
 `
 
 const BoundingBox = styled.div.attrs({
