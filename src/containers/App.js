@@ -8,6 +8,7 @@ import SignIn from '../components/SignIn';
 import Register from '../components/Register';
 import ImageLinkForm from '../components/ImageLinkForm';
 import Logo from '../components/Logo';
+import Rank from '../components/Rank';
 import FaceRecognition from '../components/FaceRecognition';
 
 
@@ -77,7 +78,22 @@ class App extends Component {
       .predict(
         Clarifai.FACE_DETECT_MODEL, 
         this.state.input)
-      .then(response => this.displayFaceBox(this.calculateFaceLocation(response)))
+      .then(response => {
+        if (response) {
+            fetch('http://localhost:3000/image', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              id: this.state.user.id
+            })
+          })
+            .then(response => response.json())
+            .then(count => {
+              this.setState(Object.assign(this.state.user, {entries: count}))
+            })
+        }
+        this.displayFaceBox(this.calculateFaceLocation(response))
+      })
       .catch(err => console.log(err)) 
   }
 
@@ -98,13 +114,14 @@ class App extends Component {
         <Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn}/>
         {route === 'home'  
         ? <div>
+          <Rank name={this.state.user.name} entries={this.state.user.entries}/>
           <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
           <FaceRecognition box={box} imageUrl={imageUrl}/> 
           <Logo showResults={showResults}/>
           </div> 
         : (
           route === 'signin' 
-          ?  <SignIn onRouteChange={this.onRouteChange}/>
+          ?  <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
           :  <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
           )
         }

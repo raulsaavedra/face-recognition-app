@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import {FaArrowDown} from 'react-icons/fa';
-import Rank from './Rank';
+
 
 
 const ImageLinkForm = ({onInputChange, onButtonSubmit}) => {
 	return (
 		<FormDiv>
-		    <Rank/>
 		    <FaArrowDown className='animated swing infinite dim black f1 mb2'/>
 		    <FormInnerDiv>
 			    <StyledInput 
