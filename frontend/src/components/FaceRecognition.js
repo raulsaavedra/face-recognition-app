@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-const FaceRecognition = ({imageUrl, box}) => {
+const FaceRecognition = ({imageUrl, boxes}) => {
 	return (
 			<div className='flex justify-center ma'>
 				<ImageDiv className='absolute mt2'>
 					<img id='inputimage' alt='' src={imageUrl} width='500px' height='auto'/> 
-					<BoundingBox style={{top: box.topRow, right: box.rightCol,
-	    bottom: box.bottomRow,
-	    left: box.leftCol,
-	    }}/>
+					{boxes.map(box => {
+					return <BoundingBox key={box.topRow} style={{top: box.topRow, right: box.rightCol, bottom: box.bottomRow, 
+					left: box.leftCol}}/>
+	    })
+	  	}
 				</ImageDiv>
 			</div>
 
