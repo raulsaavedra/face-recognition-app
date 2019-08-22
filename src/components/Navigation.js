@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ProfileIcon from './ProfileIcon';
 
 const StyledHeader = styled.header.attrs({
 	className: 'o-70 pv4 bb b--black-10 bw3 shadow-5 '
@@ -18,7 +19,7 @@ const Navigation = ({onRouteChange, isSignedIn}) => {
 				<StyledNav>
 					{isSignedIn 
 					? <div>
-						<StyledLink onClick={() => onRouteChange('signout')}>Sign Out</StyledLink>
+						<ProfileIcon onRouteChange={onRouteChange} />
 						</div> 
 					: <div>
 						<StyledLink onClick={() => onRouteChange('signin')}>Sign In</StyledLink>

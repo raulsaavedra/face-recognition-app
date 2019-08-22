@@ -8,6 +8,7 @@ import Register from '../components/Register';
 import ImageLinkForm from '../components/ImageLinkForm';
 import Logo from '../components/Logo';
 import Rank from '../components/Rank';
+import Modal from '../components/Modal'
 import FaceRecognition from '../components/FaceRecognition';
 
 
@@ -102,7 +103,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout') {
-      this.setState(initialState)
+      return this.setState(initialState)
     } else if (route === 'home') {
       this.setState({isSignedIn : true})
     }
