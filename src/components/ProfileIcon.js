@@ -17,18 +17,17 @@ class ProfileIcon extends React.Component {
 
   render() {
     return (
-      <div className="pr5 tc dib">
-      
+      <div className="tc dib">
       <Dropdown direction="left" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle
           tag="span"
           data-toggle="dropdown"
           aria-expanded={this.state.dropdownOpen}
         >
-         <img src="http://tachyons.io/img/logo.jpg" className="br-100 ba h3 w3" alt="avatar"/>
+         <img src="http://tachyons.io/img/logo.jpg" className="br-100 ba h3 w3 dim pointer" alt="avatar"/>
         </DropdownToggle>
         <DropdownMenu className="shadow-5">
-          <DropdownItem>View Profile</DropdownItem>
+          <DropdownItem onClick={this.props.toggleModal}>View Profile</DropdownItem>
           <DropdownItem onClick={() => this.props.onRouteChange('signout')}>Signout</DropdownItem>
         </DropdownMenu>
       </Dropdown>

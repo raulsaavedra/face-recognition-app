@@ -6,20 +6,20 @@ const StyledHeader = styled.header.attrs({
 	className: 'o-70 pv4 bb b--black-10 bw3 shadow-5 '
 })``
 const StyledNav = styled.nav.attrs({
-	className: 'flex justify-end tracked' 
+	className: 'flex justify-center tracked' 
 })``
 const StyledLink = styled.a.attrs({
 	className: 'mr5 link dim underline pointer f3 f4-m black fw9'
 })`
 `
-const Navigation = ({onRouteChange, isSignedIn}) => {
+const Navigation = ({onRouteChange, isSignedIn, toggleModal}) => {
 	return (
 			
 			<StyledHeader>
 				<StyledNav>
 					{isSignedIn 
 					? <div>
-						<ProfileIcon onRouteChange={onRouteChange} />
+						<ProfileIcon onRouteChange={onRouteChange} toggleModal={toggleModal}/>
 						</div> 
 					: <div>
 						<StyledLink onClick={() => onRouteChange('signin')}>Sign In</StyledLink>

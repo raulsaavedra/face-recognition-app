@@ -9,6 +9,7 @@ import ImageLinkForm from '../components/ImageLinkForm';
 import Logo from '../components/Logo';
 import Rank from '../components/Rank';
 import Modal from '../components/Modal'
+import Profile from '../components/Profile'
 import FaceRecognition from '../components/FaceRecognition';
 
 
@@ -22,6 +23,7 @@ const initialState = {
   showResults: false,
   route: 'signin',
   isSignedIn: false,
+  isProfileOpen: false,
   user: {
     id: '',
     name: '',
@@ -109,16 +111,28 @@ class App extends Component {
     }
     this.setState({route: route});
   }
-
+  toggleModal = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      isProfileOpen: !prevState.isProfileOpen
+    }))
+  }
   render() {
-    const { isSignedIn, imageUrl, route, boxes, showResults} = this.state;
+    const { isSignedIn, imageUrl, route, boxes, showResults, isProfileOpen} = this.state;
     return (
       <div className="App">
         <StyledParticles params={particlesOptions}/>
-        <Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn}/>
+        <Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn}
+        toggleModal={this.toggleModal} />
+        { isProfileOpen && 
+          <Modal>
+            <Profile isProfileOpen={isProfileOpen} toggleModal={this.toggleModal}/>
+          </Modal>
+        }
         {route === 'home'  
         ? <div>
           <Rank name={this.state.user.name} entries={this.state.user.entries}/>
+          
           <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
           <FaceRecognition boxes={boxes} imageUrl={imageUrl}/> 
           <Logo showResults={showResults}/>
