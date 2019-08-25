@@ -118,7 +118,7 @@ class App extends Component {
     }))
   }
   render() {
-    const { isSignedIn, imageUrl, route, boxes, showResults, isProfileOpen} = this.state;
+    const { isSignedIn, imageUrl, route, boxes, showResults, isProfileOpen, user} = this.state;
     return (
       <div className="App">
         <StyledParticles params={particlesOptions}/>
@@ -126,7 +126,7 @@ class App extends Component {
         toggleModal={this.toggleModal} />
         { isProfileOpen && 
           <Modal>
-            <Profile isProfileOpen={isProfileOpen} toggleModal={this.toggleModal}/>
+            <Profile isProfileOpen={isProfileOpen} toggleModal={this.toggleModal} user={user}/>
           </Modal>
         }
         {route === 'home'  
