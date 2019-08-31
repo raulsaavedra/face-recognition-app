@@ -25,20 +25,29 @@ class Profile extends React.Component {
           return;
       }
     }
+    onProfileUpdate = (data) => {
+      fetch(`http://localhost:3000/profile/${this.props.user.id}`, {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({formInput: data})
+      })
+    }
     render() {
+      const {user} = this.props;
       return (
         <div className='profile-modal'>
         <article className="bg-white br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
           <main className="pa4 black-80">
                 <div onClick={this.props.toggleModal} className="flex justify-end h2 pointer">X</div>
           <img src="http://tachyons.io/img/logo.jpg" className="h3 w3 dib" alt="avatar"/>
-          <h1>Raul</h1>
-          <h4>Images Submitted</h4>
-          <p>Member since: January</p>
+          <h1>{this.state.name}</h1>
+          <h4>{`Images Submitted: ${user.entries}`}</h4>
+          <p>{`Member since: ${new Date (user.joined).toLocaleDateString()}`}</p>
                   <label className="mt2 fw8" htmlFor="name">
                     Username:
                   </label>
                   <input
+                    onChange={this.onFormChange}
                     className="pa2 ba hover-bg-black hover-white w-100"
                     type="text"
                     name="user-name"
@@ -48,6 +57,7 @@ class Profile extends React.Component {
                     Age:
                   </label>
                   <input
+                    onChange={this.onFormChange}
                     className="pa2 ba hover-bg-black hover-white w-100"
                     type="text"
                     name="user-age"
@@ -57,6 +67,7 @@ class Profile extends React.Component {
                     Pet:
                   </label>
                   <input
+                    onChange={this.onFormChange}
                     className="pa2 ba hover-bg-black hover-white w-100"
                     type="text"
                     name="user-pet"
@@ -66,7 +77,7 @@ class Profile extends React.Component {
                    <button className='b pa2 grow pointer hover-white w-40 bg-light-blue b--black-20'>
                    Save
                    </button>
-                   <button onClick={this.props.toggleModal}className='b pa2 grow pointer hover-white w-40 bg-light-red b--black-20'>
+                   <button onClick={this.props.toggleModal} className='b pa2 grow pointer hover-white w-40 bg-light-red b--black-20'>
                    Cancel
                    </button>
                   </div> 
