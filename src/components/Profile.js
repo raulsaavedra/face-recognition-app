@@ -30,6 +30,9 @@ class Profile extends React.Component {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({formInput: data})
+      }).then(resp => {
+        this.props.toggleModal();
+        this.props.loadUser();
       })
     }
     render() {
