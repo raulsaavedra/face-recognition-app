@@ -49,6 +49,7 @@ class App extends Component {
           'Authorization': token
         }
       })
+        .then(resp => resp.json())
         .then(data => {
           if(data && data.id) {
             console.log('success, get user profile')
