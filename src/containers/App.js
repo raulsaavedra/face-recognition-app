@@ -55,6 +55,7 @@ class App extends Component {
             console.log('success, get user profile')
           }
         })
+        .catch(console.log)
     }
   }
 
