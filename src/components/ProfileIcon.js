@@ -15,6 +15,10 @@ class ProfileIcon extends React.Component {
     }));
   }
 
+  signOut = () => {
+    window.sessionStorage.clear();
+    this.props.onRouteChange('signout')
+  } 
   render() {
     return (
       <div className="tc dib">
@@ -28,7 +32,7 @@ class ProfileIcon extends React.Component {
         </DropdownToggle>
         <DropdownMenu className="shadow-5">
           <DropdownItem onClick={this.props.toggleModal}>View Profile</DropdownItem>
-          <DropdownItem onClick={() => this.props.onRouteChange('signout')}>Signout</DropdownItem>
+          <DropdownItem onClick={() => this.signOut()}>Signout</DropdownItem>
         </DropdownMenu>
       </Dropdown>
       </div>

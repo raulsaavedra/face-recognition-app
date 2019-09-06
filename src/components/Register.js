@@ -19,6 +19,9 @@ class Register extends React.Component {
 	onPasswordChange = (event) => {
 		this.setState({password: event.target.value});
 	}
+	saveAuthTokenInSession = (token) => {
+		window.sessionStorage.setItem('token', token)
+	}
 
 	onSubmitRegister = () => {
 		fetch('http://localhost:3000/register', {
@@ -31,12 +34,38 @@ class Register extends React.Component {
 			})
 		})
 		.then(response => response.json())
-		.then(user => {
-			if (user.id) {
-				this.props.loadUser(user)
-				this.props.onRouteChange('home');
-			}
-		})
+		.then(response => {
+				fetch('http://localhost:3000/signin', {
+					method: 'post',
+					headers: {'Content-Type': 'application/json'},
+					body: JSON.stringify({
+						email: this.state.email,
+						password: this.state.password
+					})
+				}) 
+				.then(response => response.json())
+		      .then(data => {
+		        if(data.userId && data.success === 'true') {
+		        	this.saveAuthTokenInSession(data.token)
+		            fetch(`http://localhost:3000/profile/${data.userId}`, {
+		              method: 'get',
+		              headers: {
+		                'Content-Type': 'application/json',
+		                'Authorization': data.token
+		              }
+		            })
+		            .then(resp => resp.json())
+		            .then(user => {
+		              if (user && user.email) {
+		                this.props.loadUser(user);
+		                this.props.onRouteChange('home');
+		              }
+		            })
+		        .catch(console.log)
+		        }
+				})
+		  })
+      
 	}
 	render () {
 	return (
