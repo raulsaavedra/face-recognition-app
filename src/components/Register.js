@@ -24,7 +24,7 @@ class Register extends React.Component {
 	}
 
 	onSubmitRegister = () => {
-		fetch('https://app.raulsaavedraapp.me/register', {
+		fetch('http://app.raulsaavedraapp.me/register', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -35,7 +35,7 @@ class Register extends React.Component {
 		})
 		.then(response => response.json())
 		.then(response => {
-				fetch('https://app.raulsaavedraapp.me/signin', {
+				fetch('http://app.raulsaavedraapp.me/signin', {
 					method: 'post',
 					headers: {'Content-Type': 'application/json'},
 					body: JSON.stringify({
@@ -47,7 +47,7 @@ class Register extends React.Component {
 		      .then(data => {
 		        if(data.userId && data.success === 'true') {
 		        	this.saveAuthTokenInSession(data.token)
-		            fetch(`https://app.raulsaavedraapp.me/profile/${data.userId}`, {
+		            fetch(`http://app.raulsaavedraapp.me/profile/${data.userId}`, {
 		              method: 'get',
 		              headers: {
 		                'Content-Type': 'application/json',
