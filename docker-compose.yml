@@ -1,6 +1,14 @@
 version: '3.7'
 
 services:
+    # React
+    frontend:
+        build: ./frontend
+        volumes: 
+          - ./:/usr/src/frontend/
+          - .:/frontend/app
+        ports:
+          - "3001:3000"
     # Backend API
     face-recognition-api:
         container_name: backend
