@@ -35,7 +35,7 @@ class Register extends React.Component {
 		})
 		.then(response => response.json())
 		.then(response => {
-				fetch('http://165.227.192.134:3000//signin', {
+				fetch('http://165.227.192.134:3000/signin', {
 					method: 'post',
 					headers: {'Content-Type': 'application/json'},
 					body: JSON.stringify({
