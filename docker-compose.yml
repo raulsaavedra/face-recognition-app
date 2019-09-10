@@ -20,11 +20,6 @@ services:
         environment:
           POSTGRES_URI: postgres://raul:secret@postgres:5432/face-docker
           REDIS_URI: redis://redis:6379
-        links:
-          - postgres
-          - redis
-          - frontend
-          - nginx
         ports:
           - "3000:3000"
     # Postgres
