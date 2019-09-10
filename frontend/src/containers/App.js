@@ -42,7 +42,7 @@ class App extends Component {
   componentDidMount() {
     const token = window.sessionStorage.getItem('token')
     if (token) {
-      fetch('http://localhost:3000/signin', {
+      fetch('http://165.227.192.134:3000/signin', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
