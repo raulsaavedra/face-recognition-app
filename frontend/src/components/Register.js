@@ -47,7 +47,7 @@ class Register extends React.Component {
 		      .then(data => {
 		        if(data.userId && data.success === 'true') {
 		        	this.saveAuthTokenInSession(data.token)
-		            fetch(`http://165.227.192.134:3000/${data.userId}`, {
+		            fetch(`http://165.227.192.134:3000/profile/${data.userId}`, {
 		              method: 'get',
 		              headers: {
 		                'Content-Type': 'application/json',
