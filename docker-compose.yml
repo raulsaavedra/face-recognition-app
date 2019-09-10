@@ -23,6 +23,8 @@ services:
         links:
           - postgres
           - redis
+          - frontend
+          - nginx
         ports:
           - "3000:3000"
     # Postgres
@@ -40,3 +42,13 @@ services:
         image: redis
         ports:
           - "6379:6379"
+    nginx:
+        image: nginx:alpine
+        container_name: webserver
+        restart: unless-stopped
+        tty: true
+        ports:
+          - "80:80"
+          - "443:443"
+        volumes:
+          - ./nginx.conf
