@@ -10,7 +10,7 @@ RUN npm run build
 
 FROM node:9.4.0-alpine
 
-WORKDIR /usr/backend/
+WORKDIR /usr/app/
 COPY --from=client /usr/app/frontend/build/ ./frontend/build/
 
 WORKDIR /usr/app/backend/
