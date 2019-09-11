@@ -21,20 +21,24 @@ const app = express();
 app.use(cors());
 app.use(morgan('combined'))
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/frontend/build/index.html'));
+});
 
-app.get('/', (req, res) => {res.send('ITS WORKING!')})
+app.get('/api', (req, res) => {res.send('ITS WORKING!')})
 
-app.post('/signin', (req, res) => {signIn.signInAuthentication(req, res, db, bcrypt)})
+app.post('/api/signin', (req, res) => {signIn.signInAuthentication(req, res, db, bcrypt)})
 
-app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)})
+app.post('/api/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)})
 
-app.get('/profile/:id', auth.requireAuth, (req, res) => {profile.handleProfile(req, res, db)}) 
+app.get('/api/profile/:id', auth.requireAuth, (req, res) => {profile.handleProfile(req, res, db)}) 
 
-app.post('/profile/:id', auth.requireAuth, (req, res) => {profile.handleProfileUpdate(req, res , db)})
+app.post('/api/profile/:id', auth.requireAuth, (req, res) => {profile.handleProfileUpdate(req, res , db)})
 
-app.put('/image', auth.requireAuth, (req, res) => {image.handleImage(req, res, db)})
+app.put('/api/image', auth.requireAuth, (req, res) => {image.handleImage(req, res, db)})
 
-app.post('/imageurl', auth.requireAuth, (req, res) => {image.handleApiCall(req, res)})
+app.post('/api/imageurl', auth.requireAuth, (req, res) => {image.handleApiCall(req, res)})
 
 app.listen(process.env.PORT || 3000, () =>  {
 	console.log(`App is running on ${process.env.PORT}`);
