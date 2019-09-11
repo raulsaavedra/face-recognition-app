@@ -21,11 +21,12 @@
     "tachyons": "^4.11.1"
   },
   "scripts": {
-    "start": "set PORT=3001 && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://165.227.192.134:8080",
   "eslintConfig": {
     "extends": "react-app"
   },
