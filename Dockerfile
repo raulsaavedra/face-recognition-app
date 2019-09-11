@@ -1,7 +1,7 @@
 FROM node:9.4.0-alpine as client
 
 WORKDIR /usr/app/frontend/
-COPY backend/package*.json ./
+COPY frontend/package*.json ./
 RUN npm install -qy
 COPY frontend/ ./
 RUN npm run build
