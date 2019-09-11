@@ -9,6 +9,7 @@ const profile = require('./controllers/profile')
 const image = require('./controllers/image')
 const morgan = require('morgan')
 const auth = require('./controllers/authorization')
+const path = require('path');
 
 
 const db = knex({
