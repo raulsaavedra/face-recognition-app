@@ -1,19 +1,15 @@
-FROM node:10.16.0
+FROM node:10.16.0 as build-deps
 
 # set working directory
-RUN mkdir /frontend
-WORKDIR /frontend 
-COPY /public /frontend/public
-COPY /src /frontend/src
-COPY ["package.json", "package-lock.json*", "./"]
-
+WORKDIR /usr/src/frontend 
+COPY package.json package-lock.json ./
 RUN npm install
-
+COPY . ./
+RUN npm run build
 # Build arguments
 ARG NODE_VERSION=10.16.0
 
-# Environment
-ENV NODE_VERSION $NODE_VERSION
-
-# start app
-CMD ["npm", "start"]
+FROM nginx:1.12-alpine
+COPY --from=build-deps /usr/src/frontend/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
