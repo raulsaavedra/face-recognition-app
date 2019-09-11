@@ -42,7 +42,7 @@ class App extends Component {
   componentDidMount() {
     const token = window.sessionStorage.getItem('token')
     if (token) {
-      fetch('http://165.227.192.134:3000/signin', {
+      fetch('/api/signin', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ class App extends Component {
         .then(resp => resp.json())
         .then(data => {
           if(data && data.id) {
-            fetch(`http://localhost:3000/profile/${data.id}`, {
+            fetch(`/api/profile/${data.id}`, {
               method: 'get',
               headers: {
                 'Content-Type': 'application/json',
