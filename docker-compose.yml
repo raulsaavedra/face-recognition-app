@@ -36,6 +36,6 @@ services:
         restart: unless-stopped
         tty: true
         ports:
-          - "80:80"
+          - "3001:3001"
         volumes:
           - ./frontend/build/
