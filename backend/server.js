@@ -20,7 +20,7 @@ const db = knex({
 const app = express();
 
 
-const CLIENT_BUILD_PATH = path.join(__dirname, '../frontend/build');
+const CLIENT_BUILD_PATH = path.join(__dirname, '/frontend/build');
 
 
 app.use(cors());
