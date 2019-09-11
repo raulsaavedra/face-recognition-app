@@ -29,7 +29,7 @@ app.use(morgan('combined'))
 app.use(bodyParser.json());
 app.use(express.static(CLIENT_BUILD_PATH));
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(CLIENT_BUILD_PATH, 'index.html'));
 });
 
@@ -47,6 +47,6 @@ app.put('/api/image', auth.requireAuth, (req, res) => {image.handleImage(req, re
 
 app.post('/api/imageurl', auth.requireAuth, (req, res) => {image.handleApiCall(req, res)})
 
-app.listen(process.env.PORT || 3000, () =>  {
+app.listen(process.env.PORT || 8000, () =>  {
 	console.log(`App is running on ${process.env.PORT}`);
 })
