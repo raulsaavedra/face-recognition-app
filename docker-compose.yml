@@ -23,5 +23,6 @@ services:
     # Redis
     redis: 
         image: redis
+        build: ./backend
         ports:
           - "6379:6379"
