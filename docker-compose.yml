@@ -38,4 +38,4 @@ services:
         ports:
           - "3001:3001"
         volumes:
-          - ./frontend/build/
+          - /frontend/build/
