@@ -114,7 +114,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-      fetch('http://localhost:3000/imageurl', {
+      fetch('/api/imageurl', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-            fetch('http://localhost:3000/image', {
+            fetch('/api/image', {
               method: 'put',
               headers: {
                 'Content-Type': 'application/json',
