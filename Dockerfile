@@ -6,7 +6,6 @@ RUN npm install -qy
 COPY frontend/ ./
 RUN npm run build
 
-
 # Setup the server
 
 FROM node:9.4.0-alpine
