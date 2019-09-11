@@ -12,6 +12,9 @@ services:
           PORT: 8000
           POSTGRES_URI: postgres://raul:secret@postgres:5432/face-docker
           REDIS_URI: redis://redis:6379
+        links:
+          - postgres
+          - redis
     # Postgres
     postgres:
         environment:
