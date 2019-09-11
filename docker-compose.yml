@@ -35,7 +35,5 @@ services:
         container_name: webserver
         restart: unless-stopped
         tty: true
-        ports:
-          - "3001:3001"
         volumes:
           - /frontend/build/
