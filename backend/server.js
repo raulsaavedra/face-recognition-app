@@ -17,10 +17,11 @@ const db = knex({
   connection: process.env.POSTGRES_URI
 });
 
+const CLIENT_BUILD_PATH = path.join(__dirname, '../frontend/build');
+
+
 const app = express();
 
-
-const CLIENT_BUILD_PATH = path.join(__dirname, '/frontend/build');
 
 
 app.use(cors());
