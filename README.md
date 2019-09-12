@@ -1,7 +1,7 @@
 # Table of Contents
-1. [About](##About)
-2. [Usage](##Usage)
-3. [Stack](##Stack)
+1. [About](# About)
+2. [Usage](# Usage)
+3. [Stack](# Stack)
 
 ## About :green_book:
 Face-Recognition App, that comes with the following features: Registration, Signin, Leveling Up and Session Token Storage.
