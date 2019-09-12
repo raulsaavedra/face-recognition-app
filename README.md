@@ -3,14 +3,20 @@
 2. [Usage](#usage)
 3. [Stack](#stack)
 
+<a name="about">
 ## About :green_book:
 Face-Recognition App, that comes with the following features: Registration, Signin, Leveling Up and Session Token Storage.
+</a>
 
+<a name="usage">
 ## Usage :key:
 Simply register when you enter the app. Once you are registered, insert any image url into the form and click on detect! The app will detect any faces that are on your image. You can sign again with the e-mail and password you signed in with and your sessions will be managed by session tokens.
+</a>
 
+<a name="stack">
 ## Stack :books:
 This app was created using the PERN stack (Postgres, Express, React and Node) and deployed using a Docker container.
+</a>
 
 ### Frontend :art: 
 The frontend was created using React, and for the styling I used Styled-Components with Tachyons (This allowed for flexible and fast styling keeping good markup) 
