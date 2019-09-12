@@ -6,7 +6,7 @@
 ## About :green_book: :
 Face-Recognition App, that comes with the following features: Registration, Signin, Leveling Up and Session Token Storage.
 
-## Usage :smile: :
+## Usage :key: :
 Simply register when you enter the app. Once you are registered, insert any image url into the form and click on detect! The app will detect any faces that are on your image. You can sign again with the e-mail and password you signed in with and your sessions will be managed by session tokens.
 
 ## Stack :books: :
