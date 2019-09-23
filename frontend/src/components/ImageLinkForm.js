@@ -14,6 +14,7 @@ const ImageLinkForm = ({onInputChange, onButtonSubmit}) => {
 			    	type='text'
 			    	aria-describedby='name-desc'
 						onChange={onInputChange}
+						placeholder='Enter any image url here!'
 			    />
 			    <StyledButton
 			    type={'button'}
