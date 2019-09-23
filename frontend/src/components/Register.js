@@ -119,6 +119,14 @@ class Register extends React.Component {
 							value="Register"
 						/>
 					</div>
+					<div className="lh-copy mt3">
+							<p 
+							onClick={() => this.props.onRouteChange('register')}
+							href="#0" 
+							className="f6 link dim black db pointer">
+								Or sign in here!
+							</p>
+						</div>
 				</div>
 			</main>
 		</article>
