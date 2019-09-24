@@ -113,7 +113,7 @@ class App extends Component {
   }
 
   onButtonSubmit = () => {
-    this.setState({imageUrl: this.state.input});
+    this.setState({showResults: true, imageUrl: this.state.input});
       fetch('/api/imageurl', {
         method: 'post',
         headers: {
