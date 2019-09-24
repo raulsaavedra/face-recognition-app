@@ -36,7 +36,7 @@ const FormDiv = styled.form.attrs({
 `
 
 const FormInnerDiv = styled.div.attrs({
-  className: 'flex-l justify-center pa4 br4'
+  className: 'flex-l justify-center pa4 br4 ba b--white bw2'
 })`
 		background:
 		radial-gradient(black 15%, transparent 16%) 0 0,
