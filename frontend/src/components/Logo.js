@@ -14,7 +14,7 @@ const StyledTilt = styled(Tilt).attrs({
 `
 const Logo = ({showResults}) => {
 	return (
-			<div> { this.state.showResults ? null : (
+			<div> { this.state.showResults ? <div></div> : (
 			<StyledLogo>
 				<StyledTilt options={{ max : 25 }} style={{ height: 250, width: 250 }} >
 				 <div className="Tilt-inner"><img alt='' src={logo}/></div>
