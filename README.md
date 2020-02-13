@@ -18,4 +18,4 @@ This app was created using the PERN stack (Postgres, Express, React and Node) an
 The frontend was created using React, and for the styling I used Styled-Components with Tachyons (This allowed for flexible and fast styling keeping good markup) 
 
 #### Backend :computer:
-The backend is served by Node, with Postgres for the database (using knex as a SQL Query Builder) and Redis for token storage.
+The backend is served by Node, with Postgres for the database (using knex as a SQL Query Builder) and Redis for token storage. The Clarifai API was used for the generation of the facial recognition.
